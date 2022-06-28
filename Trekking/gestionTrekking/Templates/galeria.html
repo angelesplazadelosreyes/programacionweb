@@ -1,0 +1,55 @@
+{% extends 'plantilla_ppal.html' %}
+{% load static %}
+
+{% block title %} Galeria {% endblock %}
+
+{% block content %}
+
+<section id="main-container" class="main-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+  
+          <div class="row shuffle-wrapper">
+            <div class="col-1 shuffle-sizer"></div>
+
+            {% for imagen in images %}
+  
+            <div class="col-lg-4 col-md-6 shuffle-item" >
+              <div class="project-img-container">
+                <a class="gallery-popup" href="{{ imagen.imagen.url }}">
+                  <img class="img-fluid" src="{{ imagen.imagen.url }}" alt="imagen-galeria">
+                </a>
+                <div class="project-item-info">
+                  <div class="project-item-info-content">
+                    <h3 class="project-item-title">
+                      <a href="#" data-toggle="modal" data-target="#{{ imagen.nombre }}">{{imagen.lugar}}</a>
+                    </h3>
+                    <p class="project-cat">{{imagen.fecha}}</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- shuffle item end -->
+
+            <!-- Modal para card-->
+            <div class="modal fade" id="{{ imagen.nombre }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <button type="button" class="close mr-4" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                  <img src="{{ imagen.imagen.url }}" alt="" class="img-fluid rounded">
+                </div>
+              </div>
+
+            {% endfor %}
+  
+          </div><!-- shuffle end -->
+  
+          </div><!-- shuffle end -->
+  
+        </div>
+    </div><!-- Content row end -->    
+</section><!-- Main container end -->
+   
+{% endblock %}
+
