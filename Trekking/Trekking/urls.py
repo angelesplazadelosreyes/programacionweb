@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Trekking.views import index
+from Trekking.views import index, galeria
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', index),
+    path('galeria/', galeria),
 ]
