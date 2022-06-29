@@ -6,7 +6,7 @@
 {% block content %}
 
     <div class="banner-carousel banner-carousel-1 mb-0">
-    <div class="banner-carousel-item" style="background-image:url({% static '/images/slider-main/bg1.jpg' %})">
+    <div class="banner-carousel-item" style="background-image:url('{% block background %}{{banner.imagen.url}}{% endblock %}')">
       <div class="slider-content">
         <div class="container h-100">
           <div class="row align-items-center h-100">

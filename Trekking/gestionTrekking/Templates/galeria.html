@@ -3,6 +3,10 @@
 
 {% block title %} Galeria {% endblock %}
 
+{% block background %}  {{banner.imagen.url}} {% endblock %}
+
+{% block titulo %} {{banner.texto}} {% endblock %}
+
 {% block content %}
 
 <section id="main-container" class="main-container">
@@ -17,7 +21,8 @@
   
             <div class="col-lg-4 col-md-6 shuffle-item" >
               <div class="project-img-container">
-                <a class="gallery-popup" href="{{ imagen.imagen.url }}">
+                <!--Aqui borre un href="{{ imagen.imagen.url }}"-->
+                <a class="gallery-popup">
                   <img class="img-fluid" src="{{ imagen.imagen.url }}" alt="imagen-galeria">
                 </a>
                 <div class="project-item-info">
