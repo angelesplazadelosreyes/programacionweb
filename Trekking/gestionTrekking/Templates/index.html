@@ -5,47 +5,23 @@
 
 {% block content %}
 
+
+
     <div class="banner-carousel banner-carousel-1 mb-0">
-    <div class="banner-carousel-item" style="background-image:url('{% block background %}{{banner.imagen.url}}{% endblock %}')">
-      <div class="slider-content">
-        <div class="container h-100">
-          <div class="row align-items-center h-100">
-            <div class="col-md-12 text-center">
-              <h2 class="slide-title" data-animation-in="slideInLeft">14 años de experiencia</h2>
-              <h3 class="slide-sub-title" data-animation-in="slideInRight">TREK CHILE</h3>
+        {% for imagen in slide %}
+            <div class="banner-carousel-item" style="background-image:url('{{imagen.slide}}')">
+            <div class="slider-content">
+                <div class="container h-100">
+                <div class="row align-items-center h-100">
+                    <div class="col-md-12 text-center">
+                    <h2 class="slide-title" data-animation-in="slideInLeft">14 años de experiencia</h2>
+                    <h3 class="slide-sub-title" data-animation-in="slideInRight">TREK CHILE</h3>
+                    </div>
+                </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="banner-carousel-item" style="background-image:url({% static '/images/slider-main/bg2.jpg' %})">
-      <div class="slider-content text-left">
-        <div class="container h-100">
-          <div class="row align-items-center h-100">
-            <div class="col-md-12">
-              <h2 class="slide-title-box" data-animation-in="slideInDown">Explora</h2>
-              <h3 class="slide-title" data-animation-in="fadeIn">Redescubre la belleza de Chile</h3>
-              <h3 class="slide-sub-title" data-animation-in="slideInLeft">Te esperamos</h3>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="banner-carousel-item" style="background-image:url({% static '/images/slider-main/bg3.jpg' %})">
-      <div class="slider-content text-right">
-        <div class="container h-100">
-          <div class="row align-items-center h-100">
-            <div class="col-md-12">
-              <h2 class="slide-title" data-animation-in="slideInDown">Nuevos Paisajes</h2>
-              <h3 class="slide-sub-title" data-animation-in="fadeIn">Belleza · Naturaleza · Vida</h3>
-              <p class="slider-description lead" data-animation-in="slideInRight">Atrévete a vivir la experiencia</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        {% endfor %}
     </div>
 
     <section class="call-to-action-box no-padding">

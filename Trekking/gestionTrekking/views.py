@@ -3,14 +3,16 @@ from django.shortcuts import render
 from gestionTrekking.models import Banner
 from gestionTrekking.models import Imagen_galeria
 from gestionTrekking.models import Plantilla
+from gestionTrekking.models import Slide
 
 # Create your views here.
 
 def index(request):
 
     banner = Banner.objects.all()
+    slide = Slide.object.all()
 
-    return render(request,"index.html",{'banner': banner})
+    return render(request,"index.html",{'banner': banner, 'slide': slide})
 
 
 def galeria(request):

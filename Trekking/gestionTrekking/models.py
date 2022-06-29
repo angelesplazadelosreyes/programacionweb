@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from email.policy import default
 from pyexpat import model
 from django.db import models
@@ -61,5 +62,11 @@ class Plantilla(models.Model):
     logo1=models.ImageField(upload_to='media')
     logo2=models.ImageField(upload_to='media')
     logo3=models.ImageField(upload_to='media')
+
+
+class Slide(models.Model):
+    id=models.IntegerField(primary_key = True)
+    slide=models.ImageField(upload_to='media')
+
 
 
