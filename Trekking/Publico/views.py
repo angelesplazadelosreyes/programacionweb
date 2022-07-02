@@ -1,59 +1,56 @@
 from django.shortcuts import render
-
-# Create your views here.
-from django.shortcuts import render
 from django.shortcuts import HttpResponse
 
 # Create your views here.
 
 def inicio(request):
 
-      return HttpResponse('nombre provisorio1')
+      return render(request, 'Publico/inicio.html')
 
 
 
 def rutas(request):
 
-      return HttpResponse('nombre provisorio2')
+      return render(request, 'Publico/rutas.html')
 
 
 
 def calendario(request):
 
-      return HttpResponse('nombre provisorio2')
+      return render(request, 'Publico/calendario.html')
 
 
 
 def galeria(request):
 
-      return HttpResponse('nombre provisorio2')
+      return render(request, 'Publico/galeria.html')
 
 
 
 def foro(request):
 
-      return HttpResponse('nombre provisorio2')
+      return render(request, 'Publico/foro.html')
 
       
 
 def faq(request):
 
-      return HttpResponse('nombre provisorio2')
+      return render(request, 'Publico/faq.html')
 
 
 
 def noticias(request):
 
-      return HttpResponse('nombre provisorio2')
+      return render(request, 'Publico/noticias.html')
 
 
 
 def contacto(request):
 
-      return HttpResponse('nombre provisorio2')
+      return render(request, 'Publico/contacto.html')
 
       
 
 def acceso_registro(request):
 
-      return HttpResponse('nombre provisorio2')
+      return render(request, 'Publico/acceso_registro.html')
