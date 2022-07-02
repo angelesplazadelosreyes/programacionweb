@@ -1,6 +1,4 @@
-from django.conf import PASSWORD_RESET_TIMEOUT_DAYS_DEPRECATED_MSG
 from django.db import models
-from django.forms import PasswordInput
 
 from Publico.views import rutas
 
@@ -24,7 +22,7 @@ class Usuario(models.Model):
     updated=models.DateField(auto_now_add=True)
 
 
-class EsadoSalud(models.Model):
+class EstadoSalud(models.Model):
     id=models.IntegerField
     idUsuario=id=models.IntegerField
     peso=models.IntegerField
@@ -50,11 +48,6 @@ class Menu(models.Model):
     id=models.IntegerField
     nombre=models.CharField
     url=models.CharField
-
-
-class Menu(models.Model):
-    idPerfil=models.IntegerField
-    idMenu=models.IntegerField
 
 
 class Mensaje(models.Model):
