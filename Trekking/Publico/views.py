@@ -21,7 +21,10 @@ def calendario(request):
 
 def galeria(request):
 
-      return render(request, 'Publico/galeria.html')
+      from Administrador.models import Galeria
+      images = Galeria.objects.all()
+
+      return render(request, 'Publico/galeria.html', {'images': images})
 
 
 def foro(request):
