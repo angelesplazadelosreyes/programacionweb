@@ -22,5 +22,6 @@ import Publico
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('Administrador.urls')),
     path('', include('Publico.urls')),
 ]
