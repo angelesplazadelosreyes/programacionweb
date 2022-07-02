@@ -25,171 +25,41 @@
       <div class="row">
         <div class="col-lg-12">
           <h3 class="border-title border-left mar-t0">PREGUNTAS FRECUENTES</h3>
+
+          
   
           <div class="accordion accordion-group accordion-classic" id="construction-accordion">
+
+            {% for pregunta in faq %}
+            
             <div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingOne">
+              <div class="card-header p-0 bg-transparent" id="heading-{{ forloop.counter }}">
                 <h2 class="mb-0">
-                  <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    ¿Cuál es la mejor época del año para practicar el trekking en Chile?
+                  {% if forloop.first %}
+                    <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{ forloop.counter }}"
+                    aria-expanded="true" aria-controls="collapse-{{ forloop.counter }}">
+                  {% else %}
+                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse-{{ forloop.counter }}"
+                    aria-expanded="false" aria-controls="collapse-{{ forloop.counter }}">
+                  {% endif %}
+                    {{pregunta.titulo}}
                   </button>
                 </h2>
               </div>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+              {% if forloop.first %}
+              <div id="collapse-{{ forloop.counter }}" class="collapse show" aria-labelledby="heading-{{ forloop.counter }}"
                 data-parent="#construction-accordion">
-                <div class="card-body">
-                  Para el norte de Chile, Octubre/Noviembre y Marzo/Abril/Mayo son los meses ideales. 
-                  Agosto y Septiembre son bastante ventosos; entre Diciembre y Febrero el “invierno boliviano” 
-                  puede fácilmente dejar nieve y lluvia en las montañas, mientras que Junio y Julio son muy fríos a gran altitud.
-                  <br>Al sur de Copiapó, los meses de verano desde Diciembre hasta Febrero son, por supuesto, el mejor momento. 
-                  Personalmente, preferimos la primavera y el otoño. 
-                  En el Chile central, es posible practicar el trekking desde Septiembre hasta Junio.
+              {% else %}
+              <div id="collapse-{{ forloop.counter }}" class="collapse" aria-labelledby="heading-{{ forloop.counter }}"
+              data-parent="#construction-accordion">
+              {% endif %}
+              <div class="card-body">
+                  {{pregunta.cuerpo}}
                 </div>
               </div>
             </div>
-  
-            <div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingTwo">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    ¿Cuál es la mejor región para los tours de trekking?
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
-                <div class="card-body">
-                  El norte de Chile, con sus grandes paisajes abiertos, su aridez e inmensas altitudes no constituye necesariamente un 
-                  paraíso del trekking, aunque sí ofrece una variedad de opciones. El árido norte ofrece un buen número de volcanes por 
-                  encima de los 5000 m para la escalada. Chile central, desde Santiago hasta Los Ángeles, ofrece de todo y para todos 
-                  los gustos en un área relativamente compacta. Exceptuando las rutas más populares, esta región está llena de senderos 
-                  solitarios sin la más mínima infraestructura. Para los que gustan del trekking de gran altitud, los mejores destinos 
-                  están alrededor de Santiago. La región de los Lagos espera a los excursionistas con su imponente paisaje de volcanes. 
-                  Sin embargo, el tiempo en esta región puede arruinarle los planes. Y alguno de los senderos cerca de Pucón reciben muchos 
-                  visitantes. La Patagonia es de por sí la Meca del trekking. Desgraciadamente, el turismo aventura se enfoca en el Parque 
-                  Nacional Torres del Paine, dejando de lado los hermosos panoramas y excelentes rutas de la Carretera Austral.
-                </div>
-              </div>
-            </div>
-  
-            <div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingThree">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    ¿Puedo conseguir equipamiento en el lugar?
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                data-parent="#construction-accordion">
-                <div class="card-body">
-                  Fuera de la capital, Santiago, es difícil encontrar buenos equipos de trekking y montañismo. 
-                  Con la excepción de pocos lugares, tales como Pucón, Puerto Varas o Puerto Natales, es incluso 
-                  más difícil arrendar equipamiento. Lo mejor es traer todo lo que pudiera necesitar. Si de todos 
-                  modos desea comprar o arrendar equipo, aquí están nuestras recomendaciones.
-                </div>
-              </div>
-            </div>
-  
-            <div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingFour">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    ¿Necesitaré un guía?
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                data-parent="#construction-accordion">
-                <div class="card-body">
-                  Por supuesto esto depende mucho de su experiencia practicando trekking. Sin embargo, 
-                  Chile no es América del Norte o Europa. Aparte de algunas excepciones, los senderos 
-                  no están marcados, no hay signos ni información de ningún tipo, ni tampoco lugares a 
-                  lo largo de los senderos en donde se pueda comprar comida. Por otro lado, mientras los 
-                  senderos más usados son fáciles de encontrar, practicar trekking en lugares silvestres 
-                  o vírgenes requiere experiencia. Si es necesario, es recomendable hacer un corto recorrido 
-                  preparatorio con un guía. Los guías locales tienen contacto con los lugareños. Cobran 
-                  alrededor de US$ 50 por día por salidas con grupos. Una lista de los guías de trekking – 
-                  con fotos, CV, correo electronico y otros datos mas – encuentran en el registro nacional 
-                  de guías de turismo. En caso que buscan un paquete completo de una excursion pueden elegir 
-                  entre muchas ofertas online – sin comissiones.
-                </div>
-              </div>
-            </div>
-  
-            <div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingFive">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    ¿Qué tanto equipo necesito llevar? o ¿Cuán grande es la mochila que necesito?
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
-                data-parent="#construction-accordion">
-                <div class="card-body">
-                  La ley de oro es viajar liviano. En recorridos de 3 o 4 días, el peso no será una 
-                  preocupación muy grande, pero excursiones más largas, con 30 kgs o más de peso, 
-                  pueden ser un verdadero fastidio. El equipamiento de alta tecnología hace la vida 
-                  más fácil, pero también es más caro. Los animales de carga son una excelente alternativa. 
-                  No son caros (cerca de US$ 20 por día), sobre todo si se toma en cuenta que un animal 
-                  puede acarrear el equipo de 4 excursionistas. Considere también el costo del caballo del 
-                  arriero. Ventaja: no sólo tendrá contacto con los lugareños, sino también se le hará la 
-                  excursión más fácil, dejándole tiempo para disfrutar de la naturaleza. Esta alternativa 
-                  le permite también de transformar su excursión a pie en una cabalgata.
-                </div>
-              </div>
-            </div>
-  
-            <div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingSix">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                    ¿Cómo llego al punto de partida de la excursión?
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
-                data-parent="#construction-accordion">
-                <div class="card-body">
-                  Buses públicos proveen transporte fácil y barato en todo Chile. La frecuencia de los buses 
-                  es particularmente alta en la Autopista Panamericana Norte-Sur. Por otra parte, las conexiones 
-                  por caminos locales que van a los Andes son menos frecuentes y operan en general en un horario 
-                  incómodo. El autostop por estas rutas se puede recomendar como una alternativa, sobre todo 
-                  porque a los chilenos les agrada llevar a los extranjeros. El precio de los vehículos de alquiler 
-                  ha bajado considerablemente en los últimos años y se puede encontrar autos por alrededor de US$ 
-                  50 por día, lo que hace más fácil llegar al punto de partida de las excursiones. Algunos albergues 
-                  tienen servicios especializados para excursionistas y ofrecen traslados a precios razonables.
-                </div>
-              </div>
-            </div>
-  
-            <div class="card">
-              <div class="card-header p-0 bg-transparent" id="headingSeven">
-                <h2 class="mb-0">
-                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                    ¿Hay un sistema de rescate?
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven"
-                data-parent="#construction-accordion">
-                <div class="card-body">
-                  Varias ciudades ofrecen servicios de rescate de montaña. También la policía (teléfono 133) 
-                  es responsable por cualquier operación de rescate. En realidad lo más difícil es contactarse 
-                  con el equipo de rescate, ya que los teléfonos celulares raramente funcionan en la montaña y 
-                  la mayor parte de los Andes está deshabitada. Por su propia seguridad, recomendamos registrar 
-                  su nombre, ruta y fecha aproximada de regreso con los guardaparques, la policía o en el lugar 
-                  en donde está alojado, antes de emprender una excursión por la naturaleza salvaje.
-                </div>
-              </div>
-            </div>
+
+            {% endfor %}
   
           </div>
           <!--/ Accordion end -->
@@ -201,4 +71,9 @@
   
     </div><!-- Container end -->
   </section><!-- Main container end -->
+  <script>
+    function identificador(){
+      
+    }
+  </script>
 {%  endblock %}

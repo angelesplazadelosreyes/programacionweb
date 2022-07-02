@@ -1,4 +1,8 @@
+from distutils.command.upload import upload
+from email.policy import default
 from django.db import models
+from datetime import datetime
+from datetime import timedelta
 
 from Publico.views import rutas
 
@@ -17,7 +21,7 @@ class Usuario(models.Model):
     contactoEmergencia=models.CharField(max_length = 100, default='')
     fonoEmergencia=models.IntegerField(default=0)
     derivarA=models.CharField(max_length = 100, default='')
-    fecNacimiento=models.DateField
+    fecNacimiento=models.DateField(default=datetime.now())
     created=models.DateField(auto_now_add=True)
     updated=models.DateField(auto_now_add=True)
 
@@ -25,8 +29,8 @@ class Usuario(models.Model):
 class EstadoSalud(models.Model):
     id=models.IntegerField(primary_key=True)
     #idUsuario=models.ForeignKey(Usuario)
-    peso=models.IntegerField()
-    estatura=models.IntegerField()
+    peso=models.IntegerField(default=0)
+    estatura=models.IntegerField(default=0)
     probCardiaco=models.CharField(max_length = 100, default='')
     probPresion=models.CharField(max_length = 100, default='')
     movilidad=models.CharField(max_length = 100, default='')
@@ -57,17 +61,17 @@ class Mensaje(models.Model):
     fecha=models.DateField(auto_now_add=True)
     titulo=models.CharField(max_length = 100, default='')
     cuerpo=models.TextField(max_length = 1000, default='')
-    estado=models.CharField(max_length = 10, default='')
+    estado=models.BooleanField(default=True)
     correo=models.CharField(max_length = 200, default='')
 
 
 class Respuesta(models.Model):
     id=models.IntegerField(primary_key=True)
-    idMensaje=models.IntegerField
+    #idMensaje=models.IntegerField
     fecha=models.DateField(auto_now_add=True)
     titulo=models.CharField(max_length = 100, default='')
     cuerpo=models.TextField(max_length = 1000, default='')
-    estado=models.CharField(max_length = 10, default='')
+    estado=models.BooleanField(default=True)
     tipo=models.CharField(max_length = 10, default='')
 
 
@@ -77,17 +81,18 @@ class Noticia(models.Model):
     titulo=models.CharField(max_length = 100, default='')
     bajada=models.CharField(max_length = 400, default='')
     cuerpo=models.TextField(max_length = 1000, default='')
-    imagen=models.ImageField
-    estado=models.CharField(max_length = 10, default='')
+    imagen=models.ImageField(upload_to='Publico', default='Publico/static/Publico/images/1.jpg')
+    estado=models.BooleanField(default=True)
     prioridad=models.CharField(max_length = 10, default='')
 
 
 class Galeria(models.Model):
     id=models.IntegerField(primary_key=True)
+    imagen=models.ImageField(upload_to='Administrador', default='Publico/static/Publico/images/1.jpg')
     titulo=models.CharField(max_length = 100, default='')
     url=models.CharField(max_length = 200, default='')
     fecha=models.DateField(auto_now_add=True)
-    estado=models.CharField(max_length = 10, default='')
+    estado=models.BooleanField(default=True)
     prioridad=models.CharField(max_length = 10, default='')
     #idPerfil=models.ForeignKey(Perfil)
 
@@ -97,41 +102,42 @@ class Ruta(models.Model):
     titulo=models.CharField(max_length = 100, default='')
     descripcion=models.CharField(max_length = 400, default='')
     dificultad=models.CharField(max_length = 10, default='')
-    distancia=models.IntegerField
-    tiempo=models.DurationField
+    distancia=models.IntegerField(default=0)
+    tiempo=models.DurationField(default=timedelta)
     urlMap=models.CharField(max_length = 200, default='')
-    fechaActualizacion=models.DateField
+    fechaActualizacion=models.DateField(default=datetime.now())
 
 
 class Salida(models.Model):
     id=models.IntegerField(primary_key=True)
-    idRuta=models.IntegerField
-    horaInicio=models.DateTimeField
-    precio=models.IntegerField
-    cupo=models.IntegerField
-    cupoUsado=models.IntegerField
-    cupoTraslado=models.IntegerField
-    cupoTrasladoUsado=models.IntegerField
-    estado=models.CharField(max_length = 10, default='')
-    fecha=models.DateField
+    #idRuta=models.IntegerField
+    horaInicio=models.DateTimeField(default=datetime.now())
+    precio=models.IntegerField(default=0)
+    cupo=models.IntegerField(default=0)
+    cupoUsado=models.IntegerField(default=0)
+    cupoTraslado=models.IntegerField(default=0)
+    cupoTrasladoUsado=models.IntegerField(default=0)
+    estado=models.BooleanField(default=True)
+    fecha=models.DateField(default=datetime.now())
     lugarEncuentro=models.CharField(max_length = 100, default='')
 
 
 class Inscripcion(models.Model):
     id=models.IntegerField(primary_key=True)
-    idUsuario=models.IntegerField
-    idSalida=models.IntegerField
-    estadoPago=models.CharField(max_length = 20, default='')
-    fechaPago=models.DateField
+    #idUsuario=models.IntegerField
+    #idSalida=models.IntegerField
+    estado=models.BooleanField(default=False)
+    fechaPago=models.DateField(default=datetime.now())
     tipoPago=models.CharField(max_length = 20, default='')
     codigoTb=models.CharField(max_length = 50, default='')
-    estado=models.CharField(max_length = 10, default='')
-    tipoDevolucion=models.CharField
+    estado=models.BooleanField(default=True)
+    tipoDevolucion=models.CharField(max_length = 20, default='')
 
 
 class Faq(models.Model):
     id=models.IntegerField(primary_key=True)
     titulo=models.CharField(max_length = 100, default='')
     cuerpo=models.TextField(max_length = 1000, default='')
-    fecha=models.DateField
-    estado=models.CharField(max_length = 10, default='')
+    fecha=models.DateField(auto_now=True)
+    estado=models.BooleanField(default=True)
+    identificador=models.CharField(max_length = 20, default='')
