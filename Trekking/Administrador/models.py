@@ -88,7 +88,7 @@ class Noticia(models.Model):
 
 class Galeria(models.Model):
     id=models.IntegerField(primary_key=True)
-    imagen=models.ImageField(upload_to='Administrador', default='Publico/static/Publico/images/1.jpg')
+    imagen=models.CharField(upload_to='Administrador', default='Publico/static/Publico/images/1.jpg')
     titulo=models.CharField(max_length = 100, default='')
     url=models.CharField(blank=True, null=True, max_length = 200)
     fecha=models.DateField(auto_now_add=True)
