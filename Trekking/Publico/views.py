@@ -15,6 +15,7 @@ def rutas(request):
       from Administrador.models import Ruta
       ruta = Ruta.objects.all()
       print(ruta)
+      
 
       return render(request, 'Publico/rutas.html', {'ruta':ruta})
 

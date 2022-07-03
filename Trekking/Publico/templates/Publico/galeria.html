@@ -37,7 +37,7 @@
               <div class="project-item-info">
                 <div class="project-item-info-content">
                   <h3 class="project-item-title" >
-                    <a href="#" data-toggle="modal" data-target="#{{ imagen.titulo }}">{{imagen.titulo}}</a>
+                    <a href="#" data-toggle="modal" data-target="#id{{ forloop.counter }}">{{imagen.titulo}}</a>
                   </h3>
                   <p class="project-cat">{{imagen.fecha}}</p>
                 </div>
@@ -46,7 +46,7 @@
           </div><!-- shuffle item end -->
 
           <!-- Modal para card-->
-          <div class="modal fade" id="{{ imagen.titulo }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="id{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <button type="button" class="close mr-4" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
