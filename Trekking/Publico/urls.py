@@ -4,6 +4,7 @@ from Publico import views
 urlpatterns = [
     path('', views.inicio, name="Inicio"),
     path('rutas', views.rutas, name="Rutas"),
+    path('ruta1', views.ruta1, name="Ruta1"),
     path('calendario', views.calendario, name="Calendario"),
     path('galeria', views.galeria, name="Galeria"),
     path('foro', views.foro, name="Foro"),

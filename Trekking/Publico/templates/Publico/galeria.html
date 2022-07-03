@@ -18,6 +18,7 @@
     </div><!-- Container end -->
   </div><!-- Banner text end -->
 </div><!-- Banner area end -->
+
 <section id="main-container" class="main-container">
   <div class="container">
     <div class="row">
@@ -30,14 +31,13 @@
 
           <div class="col-lg-4 col-md-6 shuffle-item" >
             <div class="project-img-container">
-              <!--Aqui borre un href="{{ imagen.imagen.url }}"-->
-              <a class="gallery-popup">
-                <img class="img-fluid" src="{% URL }" alt="imagen-galeria">
+              <a class="gallery-popup" href="{{ imagen.imagen.url }}" >
+                <img class="img-fluid" src="{{ imagen.imagen.url }}" alt="imagen-galeria">
               </a>
               <div class="project-item-info">
                 <div class="project-item-info-content">
-                  <h3 class="project-item-title">
-                    <a href="#" data-toggle="modal" data-target="#{{ imagen.titulo }}" >{{imagen.titulo}}</a>
+                  <h3 class="project-item-title" >
+                    <a href="#" data-toggle="modal" data-target="#{{ imagen.titulo }}">{{imagen.titulo}}</a>
                   </h3>
                   <p class="project-cat">{{imagen.fecha}}</p>
                 </div>
@@ -46,7 +46,7 @@
           </div><!-- shuffle item end -->
 
           <!-- Modal para card-->
-          <div class="modal fade" id="{{ imagen.nombre }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="{{ imagen.titulo }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <button type="button" class="close mr-4" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>

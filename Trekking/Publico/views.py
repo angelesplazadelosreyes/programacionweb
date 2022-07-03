@@ -1,3 +1,4 @@
+from email.mime import image
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 
@@ -11,7 +12,11 @@ def inicio(request):
 
 def rutas(request):
 
-      return render(request, 'Publico/rutas.html')
+      from Administrador.models import Ruta
+      ruta = Ruta.objects.all()
+      print(ruta)
+
+      return render(request, 'Publico/rutas.html', {'ruta':ruta})
 
 
 def calendario(request):
@@ -26,6 +31,13 @@ def galeria(request):
 
       return render(request, 'Publico/galeria.html', {'images': images})
 
+def ruta1(request):
+      
+      from Administrador.models import Ruta
+      ruta = Ruta.objects.all()
+      print(ruta)
+
+      return render(request, 'Publico/ruta1.html', {'ruta1': ruta1})
 
 def foro(request):
 

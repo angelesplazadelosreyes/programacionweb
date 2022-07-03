@@ -100,7 +100,8 @@ class Galeria(models.Model):
 class Ruta(models.Model):
     id=models.IntegerField(primary_key=True)
     titulo=models.CharField(max_length = 100, default='')
-    descripcion=models.CharField(max_length = 400, default='')
+    imagen=models.ImageField(upload_to='media', default='Publico/static/Publico/services/imaes/cerro-manquehito.jpg')
+    descripcion=models.TextField(max_length = 2000, default='')
     dificultad=models.CharField(max_length = 10, default='')
     distancia=models.IntegerField(default=0)
     tiempo=models.DurationField(default=timedelta)
